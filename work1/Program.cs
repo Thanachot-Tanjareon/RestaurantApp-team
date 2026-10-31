@@ -45,6 +45,11 @@ namespace work1
                 Console.WriteLine($"Rate: {restaurant.rate}");
                 Console.Write("\n");
             }
+
+
+            Console.WriteLine("Thanachot Tanjareon");
+            Console.WriteLine("Thanakorn Kongcharoen");
+            Console.WriteLine("Phutawan");
         }
     }
 }
