@@ -50,6 +50,9 @@ namespace work1
             Console.WriteLine("Thanachot Tanjareon");
             Console.WriteLine("Thanakorn Kongcharoen");
             Console.WriteLine("Phutawan");
+
+            Console.WriteLine("Phutawan");
+
         }
     }
 }
