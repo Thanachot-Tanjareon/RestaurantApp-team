@@ -52,6 +52,11 @@ namespace work1
             Console.WriteLine("Phutawan");
 
 
+<<<<<<< HEAD
+=======
+            Console.WriteLine("Phutawan");
+            Console.WriteLine("Phu");
+>>>>>>> e66e687cd46b3fdb871e3c579c8d118fbb9335d3
         }
     }
 }
