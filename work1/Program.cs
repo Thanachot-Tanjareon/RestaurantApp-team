@@ -51,13 +51,7 @@ namespace work1
             Console.WriteLine("Thanakorn Kongcharoen");
             Console.WriteLine("Phutawan");
 
-<<<<<<< HEAD
-            Console.WriteLine("Phutawan");
 
-=======
-
-            Console.WriteLine("Phu");
->>>>>>> 7ad7d93e8dfb6cd6f0019fd2ca022bc44a7eeeba
         }
     }
 }
