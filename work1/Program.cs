@@ -21,7 +21,6 @@ class Restaurant
     }
 }
 
-
 namespace work1
 {
     internal class Program
