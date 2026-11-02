@@ -27,46 +27,29 @@ namespace work1
     {
         static void Main(string[] args)
         {
-            List<Restaurant> restaurants = new List<Restaurant>
+            List<Restaurant> restaurantsTest = new List<Restaurant>()
             {
-                new Restaurant(1, "Quanjude Roast Duck", "Beijing Cuisine", 4.5f),
-                new Restaurant(2, "Donglaishun Hot Pot", "Hot Pot", 4.6f),
-                new Restaurant(3, "Din Tai Fung", "Taiwanese Cuisine", 4.7f),
-                new Restaurant(4, "Huguosi Snacks", "Snacks", 4.2f),
-                new Restaurant(5, "Haidilao Hot Pot", "Hot Pot", 4.8f)
+                new Restaurant(1, "Somtum A", "อาหารอีสาน", 4.8f),
+                new Restaurant(2, "Noodle B", "ก๋วยเตี๋ยว", 4.2f),
+                new Restaurant(3, "Steak C", "สเต๊ก", 4.5f),
+                new Restaurant(4, "Pizza D", "อาหารตะวันตก", 3.9f),
+                new Restaurant(5, "Shabu E", "ชาบู", 4.9f)
             };
 
+            List<Restaurant> goodRatingTest = restaurantsTest
+                .Where(r => r.rate >= 4.5f)
+                .ToList();
 
-            foreach (var restaurant in restaurants)
+            Console.WriteLine("===== Good Rating =====");
+
+            foreach (Restaurant foodTest in goodRatingTest)
             {
-                Console.WriteLine($"ID: {restaurant.id}");
-                Console.WriteLine($"Name: {restaurant.name}");
-                Console.WriteLine($"Category: {restaurant.category}");
-                Console.WriteLine($"Rate: {restaurant.rate}");
-                Console.Write("\n");
+                Console.WriteLine("ID: " + foodTest.id);
+                Console.WriteLine("Name: " + foodTest.name);
+                Console.WriteLine("Category: " + foodTest.category);
+                Console.WriteLine("Rating: " + foodTest.rate);
             }
-
-
-            Console.WriteLine("Thanachot Tanjareon");
-            Console.WriteLine("Thanakorn Kongcharoen");
-            Console.WriteLine("Phutawan");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            Console.WriteLine("Gus");
         }
+
     }
 }
