@@ -7,17 +7,89 @@ using System.Threading.Tasks;
 
 class Restaurant
 {
-    public uint id = 0;
-    public string name = "";
-    public string category = "";
-    public float rate = 0;
+    private uint _id;
+    private string name;
+    private string category;
+    private float rating;
 
-    public Restaurant(uint id, string name, string category, float rate)
+
+    public Restaurant(uint id)
     {
-        this.id = id;
+        this._id = id;
+    }
+
+    public Restaurant setName(string name)
+    {
         this.name = name;
+        return this;
+    }
+
+    public string getName() { return this.name; }
+
+    public Restaurant setCategory(string category)
+    {
         this.category = category;
-        this.rate = rate;
+        return this;
+    }
+
+    public string getCategory() { return this.category; }
+
+    public Restaurant setRating(float rating)
+    {
+        this.rating = rating;
+        return this;
+    }
+
+    public float getRating() { return this.rating; }
+}
+
+class AutoID
+{
+    static uint id;
+
+    public uint generate()
+    {
+        id = (uint)id++;
+        return id;
+    }
+}
+
+class TUI
+{
+    public static readonly TUI instance = new TUI();
+    private List<Restaurant> restaurants = new List<Restaurant>();
+    private AutoID autoID = new AutoID();
+
+
+    private TUI() { }
+
+    public void generateUI()
+    {
+        Restaurant restaurant = new Restaurant(autoID.generate());
+
+        Console.WriteLine("+----- Add a restaurant -----+");
+
+        Console.Write("Enter a name: ");
+        restaurant.setName(Console.ReadLine());
+
+        Console.Write("Enter a category: ");
+        restaurant.setCategory(Console.ReadLine());
+
+        Console.Write("Enter a rating: ");
+        restaurant.setRating(float.Parse(Console.ReadLine()));
+
+        restaurants.Add(restaurant);
+    }
+
+    public void showAll()
+    {
+        foreach (var restaurant in restaurants)
+        {
+            Console.WriteLine("+------ Restaurant list ------+");
+            Console.WriteLine($"Name: {restaurant.getName()}");
+            Console.WriteLine($"Catagory: {restaurant.getCategory()}");
+            Console.WriteLine($"Rating: {restaurant.getRating()}");
+        }
     }
 }
 
@@ -27,46 +99,8 @@ namespace work1
     {
         static void Main(string[] args)
         {
-            List<Restaurant> restaurants = new List<Restaurant>
-            {
-                new Restaurant(1, "Quanjude Roast Duck", "Beijing Cuisine", 4.5f),
-                new Restaurant(2, "Donglaishun Hot Pot", "Hot Pot", 4.6f),
-                new Restaurant(3, "Din Tai Fung", "Taiwanese Cuisine", 4.7f),
-                new Restaurant(4, "Huguosi Snacks", "Snacks", 4.2f),
-                new Restaurant(5, "Haidilao Hot Pot", "Hot Pot", 4.8f)
-            };
-
-
-            foreach (var restaurant in restaurants)
-            {
-                Console.WriteLine($"ID: {restaurant.id}");
-                Console.WriteLine($"Name: {restaurant.name}");
-                Console.WriteLine($"Category: {restaurant.category}");
-                Console.WriteLine($"Rate: {restaurant.rate}");
-                Console.Write("\n");
-            }
-
-
-            Console.WriteLine("Thanachot Tanjareon");
-            Console.WriteLine("Thanakorn Kongcharoen");
-            Console.WriteLine("Phutawan");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            Console.WriteLine("Gus");
+            TUI ui = TUI.instance;
+            ui.generateUI();
         }
     }
 }
