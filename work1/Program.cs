@@ -52,7 +52,26 @@ namespace work1
             Console.WriteLine("Phutawan");
 
 
+            // ค้นหาร้านที่มีคะแนนสูงสุดและต่ำสุด
+            var highestRate = restaurants.Max(r => r.rate);
+            var lowestRate = restaurants.Min(r => r.rate);
 
+            var topRestaurants = restaurants.Where(r => r.rate == highestRate);
+            var bottomRestaurants = restaurants.Where(r => r.rate == lowestRate);
+
+            // แสดงผลร้านที่คะแนนสูงสุด
+            Console.WriteLine("--- ร้านที่มีคะแนนสูงสุด ---");
+            foreach (var r in topRestaurants)
+            {
+                Console.WriteLine($"ID: {r.id} | Name: {r.name} | Category: {r.category} | Rate: {r.rate}");
+            }
+
+            Console.WriteLine("\n--- ร้านที่มีคะแนนต่ำสุด ---");
+            // แสดงผลร้านที่คะแนนต่ำสุด
+            foreach (var r in bottomRestaurants)
+            {
+                Console.WriteLine($"ID: {r.id} | Name: {r.name} | Category: {r.category} | Rate: {r.rate}");
+            }
 
 
 
